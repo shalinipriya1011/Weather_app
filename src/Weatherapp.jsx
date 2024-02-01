@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Searchbox from './Searchbox';
 import Infobox from './infobox';
+import './Weatherapp.css';
 export default function Weatherapp(){
     const [weatherinfo,setweatherinfo]= useState({
         city:"Paris",
