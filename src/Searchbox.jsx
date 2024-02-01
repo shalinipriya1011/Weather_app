@@ -3,16 +3,17 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import "./Searchbox.css";
 import { useState } from 'react';
-export default function Searchbox(){
+export default function Searchbox({updateinfo}){
     let [city, setcity] = useState("");
     const API_URL= "https://api.openweathermap.org/data/2.5/weather";
     const API_KEYS= "44ea4633225411f417ee1da89afe19b0";
 
     let getweatherinfo= async() => {
        let response = await fetch(`${API_URL}?q={city}&appid=${API_KEYS}&units=metric`);
-       let jsonresponse = await response.json;
+       let jsonresponse = await response.json();
       
        let result = {
+        city: city,
         temp: jsonresponse.main.temp,
         tempmin : jsonresponse.main.temp_min,
         tempmax : jsonresponse.main.temp_max,
@@ -22,6 +23,7 @@ export default function Searchbox(){
 
        };
        console.log(result);
+       return result;
     };
    
 
@@ -29,17 +31,17 @@ export default function Searchbox(){
         setcity(evt.target.value);
     };
 
-    let handlesubmit= (evt) =>{
+    let handlesubmit= async (evt) =>{
         evt.preventDeafult();
         console.log(city);
         setcity("");
-        getweatherinfo();
+       let info=await getweatherinfo();
+       updateinfo(info);
     };
 return(
 
     
     <div className="Searchbox1">
-       <h3>Know the weather of your city</h3> 
         <form onSubmit={handlesubmit}>
         <TextField id="city" label="City Name" variant="outlined"  required value={city}
         onChange={handlechange}/>

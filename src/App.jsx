@@ -1,11 +1,11 @@
 
 import Searchbox from './Searchbox';
-import infobox from './infobox';
+import Infobox from './infobox';
+import Weatherapp from './Weatherapp';
 function App(){
   return(
     <>
-    <Searchbox />
-    <infobox />
+    <Weatherapp />
     </>
   );
 }
