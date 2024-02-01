@@ -34,6 +34,7 @@ export default function Searchbox({updateInfo}){
 
     let handlechange = (evt) => {
         setcity(evt.target.value);
+        seterror(false);
     };
 
     let handlesubmit= async (evt) =>{
@@ -45,6 +46,7 @@ export default function Searchbox({updateInfo}){
        updateInfo(newInfo);
         }catch(err){
             seterror(true);
+            
         }
     };
 return(
@@ -59,6 +61,7 @@ return(
         </br><br></br>
         <Button variant="contained" endIcon={<SendIcon />} type="submit">Search</Button>
         {error && <p id="error">No such place exist</p>}
+        
         </form>
     </div>
     
