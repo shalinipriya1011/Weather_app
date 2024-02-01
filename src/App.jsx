@@ -1,6 +1,6 @@
 
 import Searchbox from './Searchbox';
-import Infobox from './infobox';
+import Infobox from './Infobox';
 import Weatherapp from './Weatherapp';
 function App(){
   return(

@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import "./Searchbox.css";
 import { useState } from 'react';
-export default function Searchbox({updateinfo}){
+export default function Searchbox({updateInfo}){
     let [city, setcity] = useState("");
     const API_URL= "https://api.openweathermap.org/data/2.5/weather";
     const API_KEYS= "44ea4633225411f417ee1da89afe19b0";
@@ -32,11 +32,11 @@ export default function Searchbox({updateinfo}){
     };
 
     let handlesubmit= async (evt) =>{
-        evt.preventDeafult();
+        evt.preventDefault();
         console.log(city);
         setcity("");
-       let info=await getweatherinfo();
-       updateinfo(info);
+       let newInfo=await getweatherinfo();
+       updateInfo(newInfo);
     };
 return(
 
@@ -52,4 +52,4 @@ return(
     </div>
     
 );
-}
+};
