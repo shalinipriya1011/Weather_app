@@ -1,10 +1,11 @@
-import Button from '@mui/material/Button';
+
 import Searchbox from './Searchbox';
+import infobox from './infobox';
 function App(){
   return(
     <>
     <Searchbox />
-    
+    <infobox />
     </>
   );
 }
